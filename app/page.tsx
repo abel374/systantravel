@@ -43,7 +43,7 @@ export default function Home() {
         </div>
         <div className="absolute inset-0 opacity-30">
           <img
-            src="/travel-hero.jpg"
+            src="/systan-travel.jpg"
             alt="Imagem de viagem"
             className="w-full h-full object-cover"
           />
