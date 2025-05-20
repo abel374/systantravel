@@ -1,103 +1,115 @@
-import Image from "next/image";
+"use client";
+
+import { useState } from "react";
+import { Button } from "../components/ui/button";
+import { Card, CardContent } from "../components/ui/card";
+import { Input } from "../components/ui/input";
+import { Textarea } from "../components/ui/textarea";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [form, setForm] = useState({ nome: "", email: "", mensagem: "" });
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  return (
+    <main className="min-h-screen bg-white text-gray-800">
+      {/* Header */}
+      <header className="bg-blue-700 text-white py-6 px-4 shadow-md">
+        <h1 className="text-3xl font-bold">Systan Travel</h1>
+        <p className="text-sm mt-1">Transformando sonhos em experiências reais</p>
+      </header>
+
+      {/* Hero Section */}
+      <section className="bg-blue-100 py-16 px-6 text-center">
+        <h2 className="text-4xl font-semibold mb-4">Descubra o que a Systan Travel pode fazer por você</h2>
+        <p className="mb-6 text-lg max-w-2xl mx-auto">Nossa equipe se dedica a planejar viagens sob medida, com pacotes personalizados, roteiros exclusivos e consultoria completa para você explorar o mundo com tranquilidade e segurança.</p>
+        <Button className="text-lg">Fale com a gente</Button>
+      </section>
+
+      {/* Trabalhos da Systan Travel */}
+      <section className="py-12 px-6">
+        <h2 className="text-3xl font-semibold text-center mb-10">Nossos Trabalhos</h2>
+        <div className="grid md:grid-cols-3 gap-6">
+          {[
+            {
+              titulo: "Pacotes Personalizados",
+              descricao: "Montamos roteiros exclusivos para cada cliente com base nos seus interesses, tempo e orçamento."
+            },
+            {
+              titulo: "Viagens em Grupo",
+              descricao: "Organizamos viagens para grupos com tudo incluso: transporte, hospedagem, guia e experiências culturais."
+            },
+            {
+              titulo: "Consultoria de Viagem",
+              descricao: "Ajudamos com dicas, documentação, seguros, vistos e tudo que você precisa antes da sua viagem."
+            },
+            {
+              titulo: "Experiências Locais",
+              descricao: "Oferecemos acesso a atividades autênticas como gastronomia, tours históricos e eventos regionais."
+            },
+            {
+              titulo: "Apoio ao Viajante",
+              descricao: "Acompanhamento durante a viagem com suporte em tempo real para imprevistos ou dúvidas."
+            },
+            {
+              titulo: "Viagens Corporativas",
+              descricao: "Soluções para empresas que precisam enviar equipes ou clientes para eventos, feiras ou reuniões."
+            }
+          ].map((item, idx) => (
+            <Card key={idx} className="rounded-2xl shadow-md">
+              <CardContent className="p-6">
+                <h3 className="text-xl font-bold mb-2">{item.titulo}</h3>
+                <p>{item.descricao}</p>
+              </CardContent>
+            </Card>
+          ))}
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+      </section>
+
+      {/* Sobre nós */}
+      <section className="bg-gray-100 py-12 px-6 text-center">
+        <h2 className="text-3xl font-semibold mb-4">Sobre a Systan Travel</h2>
+        <p className="max-w-2xl mx-auto">Desde a nossa fundação, temos ajudado centenas de clientes a realizar o sonho de viajar com qualidade, conforto e segurança. Nosso diferencial está no cuidado com os detalhes e no atendimento personalizado.</p>
+      </section>
+
+      {/* Contato */}
+      <section className="py-12 px-6">
+        <h2 className="text-3xl font-semibold text-center mb-6">Entre em Contato</h2>
+        <form
+          action="https://formspree.io/f/meqwnnlj"
+          method="POST"
+          className="max-w-xl mx-auto space-y-4"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+          <Input
+            type="text"
+            name="nome"
+            placeholder="Seu nome"
+            required
+            value={form.nome}
+            onChange={(e) => setForm({ ...form, nome: e.target.value })}
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
+          <Input
+            type="email"
+            name="email"
+            placeholder="Seu e-mail"
+            required
+            value={form.email}
+            onChange={(e) => setForm({ ...form, email: e.target.value })}
           />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
+          <Textarea
+            name="mensagem"
+            placeholder="Sua mensagem"
+            rows={4}
+            required
+            value={form.mensagem}
+            onChange={(e) => setForm({ ...form, mensagem: e.target.value })}
           />
-          Go to nextjs.org →
-        </a>
+          <Button type="submit">Enviar mensagem</Button>
+        </form>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-blue-700 text-white text-center py-4 mt-12">
+        <p>&copy; 2025 Systan Travel. Todos os direitos reservados.</p>
       </footer>
-    </div>
+    </main>
   );
 }
