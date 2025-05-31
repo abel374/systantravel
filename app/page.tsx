@@ -21,7 +21,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-blue-50 to-white text-gray-900 font-sans">
       {/* Header */}
-      <header className="bg-blue-900 text-white py-6 px-8 shadow-lg flex justify-between items-center">
+      <header className="bg-blue-600 text-white py-6 px-8 shadow-lg flex justify-between items-center">
         <h1 className="text-4xl font-extrabold tracking-wide">Systan Travel</h1>
         <nav>
           <ul className="flex space-x-8 text-lg font-semibold">
@@ -41,7 +41,7 @@ export default function Home() {
             Fale com a gente
           </Button>
         </div>
-        <div className="absolute inset-0 opacity-30">
+        <div className="absolute inset-0 opacity-20">
           <img
             src="/systan-travel.jpg"
             alt="Imagem de viagem"
@@ -119,7 +119,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-blue-900 text-white text-center py-8 mt-20">
+      <footer className="bg-blue-600 text-white text-center py-8 mt-20">
         <p>© 2025 Systan Travel. Todos os direitos reservados.</p>
       </footer>
     </main>
